@@ -13,7 +13,7 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @RequestMapping("/jiekou")
+    @RequestMapping("test")
     public void tojiekou() {
         studentService.hh();
         System.out.println("哈哈哈哈哈   看成功了吧");

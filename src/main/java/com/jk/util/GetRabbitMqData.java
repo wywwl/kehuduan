@@ -4,11 +4,15 @@
 
 package com.jk.util;
 
-@org.springframework.stereotype.Component
-@org.springframework.amqp.rabbit.annotation.RabbitListener(queues = {"A1804"})
-public class GetRabbitMqData {
-    public GetRabbitMqData() { /* compiled code */ }
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
 
-    @org.springframework.amqp.rabbit.annotation.RabbitHandler
-    public void getMsg(String msg) { /* compiled code */ }
+@Component
+@RabbitListener(queues = "A1804")
+public class GetRabbitMqData {
+    @RabbitHandler
+    public void getMsg(String msg) {
+        System.out.println(msg);
+    }
 }

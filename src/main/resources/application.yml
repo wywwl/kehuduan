@@ -8,7 +8,7 @@ server:
     datasource:
       username: root
       password: root
-      url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://192.168.1.136:3306/springboot?useUnicode=true&characterEncoding=UTF-8
       driver-class-name: com.mysql.jdbc.Driver
     jpa:
       show-sql: true
@@ -23,7 +23,7 @@ server:
           min-idle: 0
 
     rabbitmq:
-      password: guest
-      username: guest
-      host: 127.0.0.1
+      password: wk
+      username: wk
+      host: 192.168.1.129
       port: 5672
