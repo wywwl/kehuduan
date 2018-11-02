@@ -1,26 +1,26 @@
 server:
   port: 8089
-spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
-  datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=UTF-8
-    driver-class-name: com.mysql.jdbc.Driver
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-  redis:
-    host: 127.0.0.1
-    port: 6379
-    jedis:
-      pool:
-        max-idle: 8
-        min-idle: 0
-  data:
-    mongodb:
-      uri: mongodb://192.168.204.128:27017/1804a
+  servlet:
+
+    datasource:
+      username: root
+      password: root
+      url: jdbc:mysql://192.168.1.101:3306/myproject?useUnicode=true&characterEncoding=UTF-8
+      driver-class-name: com.mysql.jdbc.Driver
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+    redis:
+      host: 192.168.1.101
+      port: 6379
+      jedis:
+        pool:
+          max-idle: 8
+          min-idle: 0
+
+    rabbitmq:
+      password: wyr
+      username: wyr
+      host: 192.168.1.108
+      port: 5672
