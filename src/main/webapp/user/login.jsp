@@ -36,6 +36,7 @@
 
                     <div class="mb2">
                         <input value="登录" class="text" onclick="login()"  style="color: #FFFFFF !important" type="button" >
+                        <input value="注册" class="text" onclick="register()"  style="color: #FFFFFF !important" type="button" >
                     </div>
                 </form>
             </div>
@@ -86,6 +87,12 @@
 
         })
     }
+</script>
+<script type="text/javascript">
+    function register(){
+        location.href="/user/toadduser"
+    }
+
 </script>
 </body>
 </html>

@@ -71,6 +71,10 @@ public class UserController {
             /*logger.error("获取验证码失败>>>>   ", e);*/
         }
     }
+
+    /*
+    * 登陆
+    * */
     @RequestMapping("logining")
     @ResponseBody
     public String login(UserBean user, String loginCode , HttpServletRequest request){
@@ -152,7 +156,9 @@ public class UserController {
         return "/user/layouts.jsp";
     }*/
 
-
+    /*
+    * 跳到另一个登陆的页面
+    * */
     @RequestMapping("todialog")
     private String todialog(){
         return "/user/dialog.jsp";
@@ -161,5 +167,10 @@ public class UserController {
     @RequestMapping("todailoging")
     private String todailoging(){
         return "/user/dialoging.jsp";
+    }
+
+    @RequestMapping("toadduser")
+    public String  toadduser(){
+        return "/user/toadduser.jsp";
     }
 }
