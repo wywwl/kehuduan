@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
+<%--<%
     List list = (List)request.getAttribute("list");
 
     for(int i = 0; i<list.size() ; i++ ){
@@ -15,7 +15,7 @@
         out.println(aClass.toString() );
 
     }
-%>
+%>--%>
 
 <html>
 <head>
@@ -81,7 +81,7 @@
                         <div class="of mt5">
                             <span class="fr"><font class="fsize12 c-999 ml5">201/11/04 12:01</font></span> <span class="fl"> <a class="noter-dy vam" title="回复" href="javascript: void(0)" onclick="queryCommentReply(&#39;8&#39;)">
                                     <em class="icon18">&nbsp;</em>(<span class="replyCount8">0</span>)
-                                </a> <tt title="赞一下" class="noter-zan vam ml10" onclick="addPraise(&#39;8&#39;,4)">
+                                </a> <tt title="赞一下" class="noter-zan vam ml10" onclick="addPraise(data[i].id)">
                                     <em class="icon18">&nbsp;</em>(<span class="addPraise8_4 praiseCount">0</span>)
                                 </tt>
                             </span>
@@ -93,7 +93,7 @@
                                 </fieldset>
                                 <p class="of mt5 tar pl10 pr10">
                                     <span class="fl"><tt class="c-red commentReplyMsg8"></tt></span>
-                                    <a onclick="addCommentReply(&#39;8&#39;)" class="lh-reply-btn" title="回复" href="javascript: void(0)">回复</a>
+                                    <a onclick="addCommentReply(data[i].id)" class="lh-reply-btn" title="回复" href="javascript: void(0)">回复</a>
                                 </p>
                             </section>
                             <div class="mt10 pl10 pr10 pb10 commentReply8"></div>
@@ -120,6 +120,7 @@
 
     /* 点赞 */
     function addPraise(id) {
+        alert("点赞的id"+id)
         $.ajax({
             url:"../comment/addPraise",
             type:"post",
@@ -284,12 +285,15 @@
                 content:content
             },
             success:function(data){
-                alert(data.flg);
                 if(data.flg==1){
-                    goToLogin()
-                }else{
+                    alert("未登录")
+                    goToLogin();
+                }else if (data.flg==2) {
+                    alert("评论成功!");
                     $("#commentContent").val("");
                     queryComment();
+                }else if(data.flg==3){
+                   alert("评论失败!");
                 }
             }
         })
