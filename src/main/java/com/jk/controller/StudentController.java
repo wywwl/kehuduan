@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 @Controller
 @RequestMapping("student")
 public class StudentController {
@@ -135,6 +137,11 @@ public class StudentController {
             return false;
         }
         return true;
+    }
+
+    @RequestMapping("/toIndex")
+    public String toIndex(){
+        return "index";
     }
 
 

@@ -1,7 +1,6 @@
 server:
   port: 8089
   servlet:
-
   spring:
     mvc:
     datasource:
@@ -26,3 +25,4 @@ server:
       username: wyr
       host: 192.168.1.108
       port: 5672
+        ddl-auto: update

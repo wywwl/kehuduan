@@ -1,9 +1,9 @@
 package com.jk;
 
-        import org.springframework.boot.SpringApplication;
-        import org.springframework.boot.autoconfigure.SpringBootApplication;
-        import org.springframework.context.annotation.ComponentScan;
-        import org.springframework.context.annotation.ImportResource;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.amqp.core.Queue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +24,5 @@ public class KehuduanApplication {
     public Queue getQueue(){
         return new Queue("A1804");
     }
-
-
 
 }
