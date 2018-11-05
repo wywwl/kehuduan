@@ -12,7 +12,7 @@ public class UserBean implements Serializable {
     private  Integer sex;
     private Integer age;
     private String login;
-    private String upwd;
+    private String upwds;
     private String address;
     private String uemial;
     private  String  file;
@@ -59,12 +59,12 @@ public class UserBean implements Serializable {
         this.login = login;
     }
 
-    public String getUpwd() {
-        return upwd;
+    public String getUpwds() {
+        return upwds;
     }
 
-    public void setUpwd(String upwd) {
-        this.upwd = upwd;
+    public void setUpwds(String upwds) {
+        this.upwds = upwds;
     }
 
     public String getAddress() {
@@ -105,22 +105,5 @@ public class UserBean implements Serializable {
 
     public void setNbcount(Integer nbcount) {
         this.nbcount = nbcount;
-    }
-
-    @Override
-    public String toString() {
-        return "UserBean{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", sex=" + sex +
-                ", age=" + age +
-                ", login='" + login + '\'' +
-                ", upwd='" + upwd + '\'' +
-                ", address='" + address + '\'' +
-                ", uemial='" + uemial + '\'' +
-                ", file='" + file + '\'' +
-                ", grade='" + grade + '\'' +
-                ", nbcount=" + nbcount +
-                '}';
     }
 }

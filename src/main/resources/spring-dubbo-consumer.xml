@@ -12,7 +12,7 @@
 	<dubbo:consumer timeout="1200000" />
 
 <!-- 使用zookeeper注册中心发现暴露的服务地址 -->
-<dubbo:registry address="zookeeper://192.168.1.101:2181" />
+<dubbo:registry address="zookeeper://192.168.1.118:2181" />
 <dubbo:reference id="activeService" interface="com.jk.service.activeService.ActiveService"  timeout="1200000"  />
 <dubbo:reference id="userService" interface="com.jk.service.userService.UserService" timeout="1200000"   />
 <dubbo:reference id="stuService" interface="com.jk.service.StudentService"    />

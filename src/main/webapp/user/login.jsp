@@ -27,7 +27,7 @@
                     </div>
                     <div class="input_outer">
                         <span class="t_user"></span>
-                        <input name="upwd" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"type="password" placeholder="请输入密码">
+                        <input name="upwds" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"type="password" placeholder="请输入密码">
                     </div>
                     <div class="input_outer">
                         <input name="loginCode" class="text" style="color: #FFFFFF !important" type="text"  placeholder="请输入验证码">

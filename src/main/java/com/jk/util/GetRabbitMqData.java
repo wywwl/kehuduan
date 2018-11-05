@@ -5,15 +5,15 @@
 package com.jk.util;
 
 
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
+//import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+//import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-@Component
-@RabbitListener(queues = "A1804")
-public class GetRabbitMqData {
-    @RabbitHandler
-    public void getMsg(String msg) {
-        System.out.println(msg);
-    }
-}
+//@Component
+//@RabbitListener(queues = "A1804")
+//public class GetRabbitMqData {
+//    @RabbitHandler
+//    public void getMsg(String msg) {
+//        System.out.println(msg);
+//    }
+//}
