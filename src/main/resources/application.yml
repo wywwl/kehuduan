@@ -2,6 +2,8 @@ server:
   port: 8089
   servlet:
 
+  spring:
+    mvc:
     datasource:
       username: root
       password: root
