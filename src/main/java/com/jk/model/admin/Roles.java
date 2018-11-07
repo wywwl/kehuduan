@@ -1,4 +1,4 @@
-package com.jk.model;
+package com.jk.model.admin;
 /**
  *后台管理角色表
  * 吴洋洋

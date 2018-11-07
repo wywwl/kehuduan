@@ -1,4 +1,4 @@
-package com.jk.model;
+package com.jk.model.admin;
 
 import java.io.Serializable;
 import java.util.Date;

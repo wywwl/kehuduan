@@ -2,25 +2,35 @@ package com.jk.controller.admin;
 
 
 
-import com.alibaba.fastjson.JSON;
-import com.jk.model.AdminRoles;
-import com.jk.model.Admins;
-import com.jk.model.Roles;
-import com.jk.model.Trees;
+import com.alibaba.dubbo.common.utils.StringUtils;
+import com.alibaba.fastjson.JSONArray;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.jk.model.admin.*;
 import com.jk.service.admin.AdminService;
-import com.jk.util.admin.RandomValidateCodeUtil;
+import com.jk.util.admin.*;
+import org.apache.http.Consts;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.NameValuePair;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 登录权限处理页面
@@ -32,18 +42,9 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
 
-    @RequestMapping("gethada")
-    public String gethada(){
-        String aaa = "state:{checked: true,disabled: false,expanded: true,selected: false}";
-        HashMap<Object, Boolean> state1 = new HashMap<>();
-        state1.put("checked", true);
-        state1.put("disabled", false);
-        state1.put("expanded", false);
-        state1.put("selected", false);
-        System.out.println(state1);
-        return "{}";
-    }
 
 
     /**
@@ -135,11 +136,14 @@ public class AdminController {
      */
     @RequestMapping("addAdminRole")
     @ResponseBody
-    public String addAdminRole(String ids,String adminId){
+    public String addAdminRole(String ids,String adminId,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Admins attribute = (Admins) session.getAttribute(session.getId());
+        Integer aid = attribute.getAid();
         adminService.addAdminRole(ids,adminId);
+        redisTemplate.delete(Constant.TREE_CODE + aid);
         return "{}";
     }
-
 
     /**
      * 角色列表
@@ -211,7 +215,22 @@ public class AdminController {
         HttpSession session = request.getSession();
         Admins attribute = (Admins) session.getAttribute(session.getId());
         Integer aid = attribute.getAid();
-        return adminService.getTree(aid);
+        //定义缓存key
+        String cachekey = Constant.TREE_CODE+aid;
+        //通过key获取当前用户的左侧权限树
+        String treeCache = (String)redisTemplate.opsForValue().get(cachekey);
+        //判断这个Key    treeCache是否存在  不存在就查询 存在直接返回
+        if(treeCache == null){
+            //查询当前登录的用户所有权限返回的List
+            List<Trees> tree = adminService.getTree(aid);
+            //将查询出来的权限树转换成json格式
+            String json = JSONArray.toJSONString(tree);
+            //将查询出的权限树存入缓存中
+            redisTemplate.opsForValue().set(cachekey,json,30, TimeUnit.MINUTES);
+            return tree;
+        }
+        List<Trees> trees = JSONArray.parseArray(treeCache, Trees.class);
+        return trees;
     }
 
 

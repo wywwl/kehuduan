@@ -10,3 +10,10 @@ server:
       show-sql: true
       hibernate:
         ddl-auto: update
+  redis:
+    host: 192.168.1.111
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
