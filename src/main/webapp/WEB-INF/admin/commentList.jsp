@@ -264,7 +264,7 @@
     function del(id){
         if(confirm("你确定要删除这条数据吗?")){
             $.ajax({
-                url:'../comment/del.do?id='+id,
+                url:'../comment/del?id='+id,
                 success:function(){
                     $('#myTable').bootstrapTable("refresh",{});
                 }

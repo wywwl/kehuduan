@@ -5,14 +5,12 @@ import com.jk.model.Blog;
 import com.jk.model.Comment;
 import com.jk.service.CommentService;
 import com.jk.util.ResultPage;
-import com.jk.util.SingletonLoginUtils;
+import com.jk.util.UserBeanUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -65,7 +63,7 @@ public   String toaddContent( ){
 
 
     @RequestMapping("toIndex")
-    public   String toIndex(HttpServletRequest request){
+    public   String toIndex(){
 
         return "/WEB-INF/comment/showcomment.jsp";
     }
@@ -93,9 +91,12 @@ public   String toaddContent( ){
     @ResponseBody
      public Map<String,Object> saveComment(HttpServletRequest request, Comment comment){
         Map<String, Object> json = new HashMap<>();
+        String id="1";
+
         try {
+           request.getSession().setAttribute(String.valueOf(id), "userInfo");
             // 如果用户未登录则不能评论
-            int userId = SingletonLoginUtils.getLoginUserId(request);
+            int userId = UserBeanUtil.getUserId(request);
             if (userId == 0) {
                 json .put("flg","1");//用户id为空
                 return json;
