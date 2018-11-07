@@ -63,13 +63,10 @@
             columns:[
                 {checkbox:true},
                 {field:'hid',title:'活动ID',align:'center',width:150},
-                {field:'name',title:'发表人',width:150},
-                {field:'file',title:'广告图片',width:150},
-                {field:'enterprise',title:'广告企业',width:150,},
-                {field:'enterprisephone',title:'企业电话',width:150},
-                {field:'enterpriseemail',title:'企业邮箱',width:150},
-                {field:'starttime',title:'开始时间',width:150},
-                {field:'endtime',title:'结束时间',width:150},
+                {field:'content',title:'活动内容',width:150},
+                {field:'startdate',title:'活动开始时间',width:150},
+                {field:'enddate',title:'活动结束时',width:150,},
+                {field:'himg',title:'活动头像',width:150},
             ]
         });
     }

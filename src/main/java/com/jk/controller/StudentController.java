@@ -86,7 +86,7 @@ public class StudentController {
     }
 
 
-    /*添加图片*//*
+    //添加图片*//*
     @RequestMapping(value="headImgUpload", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> headImgUpload(HttpServletRequest request, @RequestParam("img") MultipartFile image) throws Exception {
@@ -104,7 +104,7 @@ public class StudentController {
         return value;
     }
 
-*/
+
     /**
      * 修改跳转回显
      */
