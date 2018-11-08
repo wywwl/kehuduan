@@ -1,4 +1,4 @@
-package com.jk.model;
+package com.jk.model.admin;
 /**
  *角色权限树中间关联表
  * 吴洋洋

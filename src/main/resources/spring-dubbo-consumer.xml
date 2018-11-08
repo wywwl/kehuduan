@@ -20,5 +20,6 @@
 <dubbo:reference id="stuService" interface="com.jk.service.StudentService"    />
 <dubbo:reference id="commentService" interface="com.jk.service.CommentService"    />
 <dubbo:reference id="adminService" interface="com.jk.service.admin.AdminService"    />
+<dubbo:reference id="payService" interface="com.jk.service.pay.PayService"    />
 
 </beans>  

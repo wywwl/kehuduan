@@ -1,8 +1,6 @@
-package com.jk.model;
+package com.jk.model.admin;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  *权限树表

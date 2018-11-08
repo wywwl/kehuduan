@@ -1,8 +1,8 @@
 package com.jk.service;
 
-import com.jk.model.Admins;
 import com.jk.model.Blog;
 import com.jk.model.Comment;
+import com.jk.model.UserBean;
 import com.jk.util.ResultPage;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +35,7 @@ public interface CommentService {
 
    ResultPage queryAdminComment(Comment comment);
 
-    void addContent(/*HttpServletRequest request,*/ Comment comment, Admins admins);
+    void addContent(/*HttpServletRequest request,*/ Comment comment, UserBean admins);
 
     List<Blog> getBlogData(Blog blog);
 

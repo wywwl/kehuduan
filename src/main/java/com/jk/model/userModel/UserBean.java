@@ -19,6 +19,16 @@ public class UserBean implements Serializable {
     private  String   grade;
     private   Integer  nbcount;
 
+    private  Integer jifen;
+
+    public Integer getJifen() {
+        return jifen;
+    }
+
+    public void setJifen(Integer jifen) {
+        this.jifen = jifen;
+    }
+
     public Integer getId() {
         return id;
     }

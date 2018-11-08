@@ -1,9 +1,6 @@
 package com.jk.service.admin;
 
-import com.jk.model.AdminRoles;
-import com.jk.model.Admins;
-import com.jk.model.Roles;
-import com.jk.model.Trees;
+import com.jk.model.admin.*;
 
 import java.util.List;
 import java.util.Map;
@@ -31,4 +28,11 @@ public interface AdminService {
     void addAdminForm(String name,String login,String upwd,Integer age,Integer sex,String times,String emial);
 
     void deleteAdmin(String ids);
+
+
+    List<Advertisement> gettest();
+
+    void updataAdvertisement(Integer id, long newTime);
+
+    void deleteAdvertisement(Integer id);
 }

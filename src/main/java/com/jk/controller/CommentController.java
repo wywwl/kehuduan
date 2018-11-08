@@ -1,8 +1,8 @@
 package com.jk.controller;
 
-import com.jk.model.Admins;
 import com.jk.model.Blog;
 import com.jk.model.Comment;
+import com.jk.model.UserBean;
 import com.jk.service.CommentService;
 import com.jk.util.ResultPage;
 import com.jk.util.UserBeanUtil;
@@ -148,7 +148,7 @@ public   String toaddContent( ){
     }
     @RequestMapping("addContent")
     @ResponseBody
-    String addContent(/*HttpServletRequest request,*/Comment comment, Admins admins){
+    String addContent(/*HttpServletRequest request,*/Comment comment, UserBean admins){
         commentService.addContent(/*request, */comment, admins);
         return "{}";
     }

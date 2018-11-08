@@ -165,6 +165,14 @@
         </dependency>
 
 
+        <!--短信调用接口依赖-->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
