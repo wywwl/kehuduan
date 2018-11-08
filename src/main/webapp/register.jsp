@@ -13,7 +13,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-    <title>注册-${applicationScope.bbsinfo.name}</title>
+    <title>注册-${applicationScope.indexuser.name}</title>
     <meta name="keywords" content="注册" />
     <meta name="description" content="注册" />
     <link rel="stylesheet" type="text/css" href="${path}/css/css/style_14_common.css" />
@@ -39,10 +39,10 @@
                 $("#namespan").hide();
             }
             var param={};
-            param.loginname=name;
+            param.login=name;
             $.ajax({
                 type: "POST",
-                url: "${path}/zhuc/isusername.do",
+                url: "../comment/isusername",
             data: param,
                 dataType:"json",
                 async: false,
@@ -76,7 +76,7 @@
             param.yanzhengma=yanzhengma;
             $.ajax({
                 type: "POST",
-                url: "${path}/yanzhengma/isyanzhengma.do",
+                url: "../code/iscode.do",
                 data: param,
                 dataType:"json",
                 async: false,
@@ -127,13 +127,13 @@
         function submitzhuc(){
             if(isusername()&&ispwd()&&isqpwd()&&isyanzhengma()){
                 var param={};
-                param.loginname=$.trim($("#name").val());
-                param.pwd=$.trim($("#qpwd").val());
-                param.email=$.trim($("#email").val());
+                param.login=$.trim($("#name").val());
+                param.upwds=$.trim($("#qpwd").val());
+                param.uemial=$.trim($("#email").val());
                 param.yanzhengma=$.trim($("#yanzhengma").val());
                 $.ajax({
                     type: "POST",
-                    url: "${path}/zhuc/add.do",
+                    url: "../comment/registerUser",
                     data: param,
                     dataType:"json",
                     async: false,
@@ -142,7 +142,8 @@
                         var msg=data.msg;
                         if(flag=="1"){
                             alert(msg);
-                            window.location.href='${path}/login/index.do';
+                            //去登录页面
+                      window.location.href='../login/index';
                         }else{
                             alert(msg);
                         }
@@ -152,7 +153,7 @@
         }
 
         function updateyanzhengma(){
-            document.getElementById('yanzhengmaimg').src= '${path}/yanzhengma/index.do?t='+new Date().getTime();
+            document.getElementById('yanzhengmaimg').src= '../code/getcode?t='+new Date().getTime();
 
         }
 
@@ -171,7 +172,7 @@
         <div class="mn">
             <div class="bm" id="main_message">
                 <p id="returnmessage4"></p>
-                <form method="post" id="form" action="${path}/zhuc/add.do">
+                <form method="post" id="form" action="../comment/registerUser">
                     <div id="layer_reg" class="bm_c">
                         <div class="mtw">
                             <div id="reginfo_a">
@@ -180,7 +181,7 @@
                                         <tbody>
                                         <tr>
                                             <th><span class="rq">*</span><label for="ZODRdi">用户名:</label></th>
-                                            <td><input type="text" name="loginname" id="name" class="px"  size="25" maxlength="15"  onblur="isusername();"/></td>
+                                            <td><input type="text" name="login" id="name" class="px"  size="25" maxlength="15"  onblur="isusername();"/></td>
                                             <td class="tipcol" colspan="3">
                                                 <i id="namespan" class="p_tip"></i>
                                             </td>
@@ -194,14 +195,14 @@
                                         </tr>
                                         <tr>
                                             <th><span class="rq">*</span><label for="ZODRdi">确认密码:</label></th>
-                                            <td><input type="password" name="pwd" id="qpwd" class="px"  size="25" maxlength="15" onblur="isqpwd();" /></td>
+                                            <td><input type="password" name="upwds" id="qpwd" class="px"  size="25" maxlength="15" onblur="isqpwd();" /></td>
                                             <td class="tipcol" colspan="3">
                                                 <i id="qpwdspan" class="p_tip"></i>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th><span class="rq"></span><label for="ZODRdi">邮箱:</label></th>
-                                            <td><input type="text" name="email" id="email" class="px"  size="25" maxlength="15"  /></td>
+                                            <td><input type="text" name="uemial" id="email" class="px"  size="25" maxlength="15"  /></td>
                                             <td class="tipcol" colspan="3">
                                                 <i id="emailspan" class="p_tip"></i>
                                             </td>
@@ -210,7 +211,7 @@
                                             <th><span class="rq">*</span><label for="ZODRdi">验证码:</label></th>
                                             <td style="height: 56px;">
                                                 <input style="width: 125px;margin-top: -20px;" type="text" name="yanzhengma" id="yanzhengma" class="px"  size="4" maxlength="4"  onblur="isyanzhengma();"/>
-                                                <img src="${path}/yanzhengma/index.do" alt="验证码" height="30px;" id="yanzhengmaimg" onclick="updateyanzhengma();"/>
+                                                <img src="../code/getcode" alt="验证码" height="30px;" id="yanzhengmaimg" onclick="updateyanzhengma();"/>
                                             </td>
                                             <td class="tipcol" colspan="3">
                                                 <i id="yanzhengmaspan" class="p_tip"></i>

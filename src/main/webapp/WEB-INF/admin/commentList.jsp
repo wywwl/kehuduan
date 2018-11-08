@@ -13,7 +13,7 @@
 <body>
 <link rel="stylesheet" href="../boot/bootstrap3/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="../boot/layui/css/layui.css">
+<link rel="stylesallheet" href="../boot/layui/css/layui.css">
 <link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css">
 <link rel="stylesheet" href="../boot/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
 <link rel="stylesheet" href="../boot/bootstrap3/css/bootstrap-theme.min.css">

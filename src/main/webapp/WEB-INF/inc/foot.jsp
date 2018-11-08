@@ -19,7 +19,7 @@
   function updateuseronlinetime(){
 	  $.ajax({
 		   type: "POST",
-		   url: "${path}/common/updateuseronlinetime.do",
+		   url: "../common/updateuseronlinetime",
 		   async: true,
 		   success: function(data){
 		   }

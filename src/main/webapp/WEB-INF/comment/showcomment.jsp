@@ -28,13 +28,14 @@
 
 
 <script src="../boot/bootstrap3/js/jquery-3.2.0.min.js"></script>
+<script src="../boot/bootstrap3/js/bootstrap.min.js"></script>
 <script src="../boot/bootstrap-table/bootstrap-table.js"></script>
 <script src="../boot/bootstrap3/js/bootstrap.js"></script>
 <script src="../boot/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 <script src="../boot/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
 <script src="../boot/bootstrap3/bootbox.js"></script>
 <script src="../boot/bootstrap3/messenger.js"></script>
-<script src="../boot/bootstrap3/js/bootstrap.min.js"></script>
+
 
 <body>
 
@@ -387,7 +388,8 @@
             /*刷新当前页面.*/
             window.location.reload();
         }else{
-            /*  让用户登陆 location.href="../main/toMainJsp.do" */
+
+      location.href="../login.jsp";
         }
     }
     /**

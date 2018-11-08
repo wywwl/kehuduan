@@ -1,10 +1,13 @@
 package com.jk.model;
 
+import java.io.Serializable;
+
 /**
  * 王玉荣
  */
-public class UserBean {
+public class UserBean implements Serializable {
 
+    private static final long serialVersionUID = 3671916659679712556L;
     private Integer id;
 
     private String name;
@@ -16,10 +19,175 @@ public class UserBean {
     private String login;
 
     private String upwds;
-
     private String address;
-
+   private String webage;
     private String uemial;
+   private Double years;
+
+
+    private String qianming;
+    private String file;
+
+    //创建时间
+    private String createtime;
+
+    //最后登陆时间
+    private String lastlogintime;
+
+    public Double getYears() {
+        return years;
+    }
+
+    public void setYears(Double years) {
+        this.years = years;
+    }
+
+    public String getWebage() {
+        return webage;
+    }
+
+    public void setWebage(String webage) {
+        this.webage = webage;
+    }
+
+    //注册ip
+    private String zhuceip;
+
+    //登陆ip
+    private String loginip;
+
+    //标识
+    private String flag;
+
+    //积分
+    private Integer jifen;
+
+    //用户组名称
+    private String groupname;
+    //用户组id
+    private Integer groupid;
+
+    //用户登记
+    private Integer grade;
+      //nb数
+    private Integer nbcount;
+     //地址
+    private   String pathlocation;
+    //验证码
+    private String yanzhengma;
+
+
+    public String getPathlocation() {
+        return pathlocation;
+    }
+
+    public void setPathlocation(String pathlocation) {
+        this.pathlocation = pathlocation;
+    }
+
+    public String getYanzhengma() {
+        return yanzhengma;
+    }
+
+    public void setYanzhengma(String yanzhengma) {
+        this.yanzhengma = yanzhengma;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+    public Integer getNbcount() {
+        return nbcount;
+    }
+
+    public void setNbcount(Integer nbcount) {
+        this.nbcount = nbcount;
+    }
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+
+    public String getQianming() {
+        return qianming;
+    }
+
+    public void setQianming(String qianming) {
+        this.qianming = qianming;
+    }
+
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
+
+    public String getLastlogintime() {
+        return lastlogintime;
+    }
+
+    public void setLastlogintime(String lastlogintime) {
+        this.lastlogintime = lastlogintime;
+    }
+
+    public String getZhuceip() {
+        return zhuceip;
+    }
+
+    public void setZhuceip(String zhuceip) {
+        this.zhuceip = zhuceip;
+    }
+
+    public String getLoginip() {
+        return loginip;
+    }
+
+    public void setLoginip(String loginip) {
+        this.loginip = loginip;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public Integer getJifen() {
+        return jifen;
+    }
+
+    public void setJifen(Integer jifen) {
+        this.jifen = jifen;
+    }
+
+    public String getGroupname() {
+        return groupname;
+    }
+
+    public void setGroupname(String groupname) {
+        this.groupname = groupname;
+    }
+
+    public Integer getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(Integer groupid) {
+        this.groupid = groupid;
+    }
 
     public Integer getId() {
         return id;

@@ -1,14 +1,17 @@
 package com.jk.service;
 
-import com.jk.model.Admins;
-import com.jk.model.Blog;
-import com.jk.model.Comment;
+import com.jk.model.*;
 import com.jk.util.ResultPage;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 public interface CommentService {
+
+
+
+
 
     /**
      * 查询评论
@@ -38,5 +41,27 @@ public interface CommentService {
     void addContent(/*HttpServletRequest request,*/ Comment comment, Admins admins);
 
     List<Blog> getBlogData(Blog blog);
+   //用户注册
+    void insert(UserBean user);
 
+    UserBean findbyid(UserBean user);
+
+    void updategroupbyuser(Integer id, int groupvip);
+
+    Object isusername(String login);
+
+    void updateuseronlinetime(UserBean user);
+
+    int findnowcount(Jifen jifen);
+
+    Map<String, Object> login(UserBean user );
+
+    void insertss(Jifen jifen);
+
+    void update(UserBean user);
+
+    UserBean findbyuserid(Integer id);
+    //心情展示
+    List<Mood> getMoodList(Mood mood);
 }
+
