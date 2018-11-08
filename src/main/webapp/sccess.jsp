@@ -6,17 +6,15 @@
     <title>Insert title here</title>
 </head>
 <body>
-
-${userInfo.id}
 <script src="/js/jquery.min.js"></script>
 <script>
     $(function(){
-        location.href="/user/dialoging.jsp";
+        location.href="login.jsp";
         $.ajax({
-            url:'/pay/addnbcount',
+            url:'/pay/addusernb',
             type:'post',
             dataType:'json',
-            data:{"nbcount":'${jiaqian}',"id":'${userInfo.id}'},
+            data:{"nbcount":'${jiaqian}',"id":'${session.indexuser.login}'},
             success:function(){
 
             }

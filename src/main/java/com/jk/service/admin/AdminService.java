@@ -30,9 +30,6 @@ public interface AdminService {
     void deleteAdmin(String ids);
 
 
-    List<Advertisement> gettest();
-
-    void updataAdvertisement(Integer id, long newTime);
 
     void deleteAdvertisement(Integer id);
 }
