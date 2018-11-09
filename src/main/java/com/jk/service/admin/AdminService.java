@@ -35,4 +35,6 @@ public interface AdminService {
     void updataAdvertisement(Integer id, long newTime);
 
     void deleteAdvertisement(Integer id);
+
+    Map<String, Object> getLog(int page, int rows);
 }

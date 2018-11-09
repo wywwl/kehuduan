@@ -3,11 +3,17 @@ package com.jk.controller.admin;
 
 
 import com.alibaba.dubbo.common.utils.StringUtils;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.jk.model.admin.*;
+import com.jk.model.aop.RoleLog;
 import com.jk.service.admin.AdminService;
 import com.jk.util.admin.*;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.GroupCommand;
+import com.mongodb.client.MongoCollection;
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.config.RequestConfig;
@@ -19,8 +25,18 @@ import org.apache.http.NameValuePair;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationResults;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +45,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -44,6 +62,48 @@ public class AdminController {
 
     @Autowired
     private RedisTemplate redisTemplate;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+
+
+    @RequestMapping("gettetet")
+    public String gettetet(){
+        RoleLog roleLog = new RoleLog();
+        roleLog.setUserId("1");
+        Query query = new Query();
+        query = Query.query(Criteria.where("userId").regex(".*?"+roleLog.getUserId()+".*"));
+        query.with(new Sort(new Order(Direction.DESC,"createTime")));
+        long count =  mongoTemplate.count(query,RoleLog.class);
+
+
+        System.out.println(count);
+        return "";
+    }
+
+
+
+
+    /***
+     * 获取日志
+     * @return
+     */
+    @RequestMapping("getLog")
+    @ResponseBody
+    public Map<String,Object> getLog (int page, int rows){
+        return adminService.getLog(page,rows);
+    }
+
+
+    /**
+     * 跳转日志记录展示
+     * @return
+     */
+    @RequestMapping("toLog")
+    public String toLog(){
+        return "/WEB-INF/adminJsp/showLog.jsp";
+    }
 
 
 
@@ -89,8 +149,12 @@ public class AdminController {
      */
     @RequestMapping("addRtree")
     @ResponseBody
-    public String addRtree(String rolesId,String ids){
+    public String addRtree(String rolesId, String ids,HttpServletRequest request){
+        HttpSession session = request.getSession();
+        Admins attribute = (Admins) session.getAttribute(session.getId());
+        Integer aid = attribute.getAid();
         adminService.addRtree(rolesId,ids);
+        redisTemplate.delete(Constant.TREE_CODE + aid);
         return "{}";
     }
 
