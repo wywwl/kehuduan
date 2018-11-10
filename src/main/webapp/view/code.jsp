@@ -40,7 +40,7 @@
                     <a id="nav_index" class="nav-link" href="/">首页</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav_share" class="nav-link" href="/share.htm">代码</a>
+                    <a id="nav_share" class="nav-link" href="../CodeController/qyerycode">代码</a>
                 </li>
                 <li class="nav-item">
                     <a id="nav_question" class="nav-link" href="/question.htm">问答</a>
@@ -104,7 +104,7 @@
                         <c:forEach items="${list}"  var="list">
                             <div class="col-1">
                                 <a class="name" href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg">
-                                    <img content_id="4132167457753088_1" alt="css3实现3d图片旋转（多图）" class="profile rounded-circle" src="${list.userFile}"/></a>
+                                    <img content_id="4132167457753088_1" alt="" class="profile rounded-circle" src="${list.userFile}"/></a>
                             </div>
                             <div class="col-11">
                                 <div class="data_title">
@@ -120,10 +120,7 @@
                                 </div>
                                 <div class="content margin_top5" id="project_content_4099965877734400">
                                         ${list.code_content}
-                                    <div class="clear">
-                                        <a href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" target="_top"><img alt="css3实现3d图片旋转（多图）" data-rawwidth="809" data-rawheight="799" src="" class="lazy img-rounded" data-original="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" style="height: 118px;"></a>&nbsp;&nbsp;
-                                        <a href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" target="_top"><img alt="css3实现3d图片旋转（多图）" data-rawwidth="825" data-rawheight="489" src="" class="lazy img-rounded" data-original="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" style="height: 71px;"></a>&nbsp;&nbsp;
-                                    </div>
+
                                 </div>
                                 <div class="clear margin_top5 data_ops">
                                     <span class="code">浏览${list.code_Browse}</span>
@@ -134,12 +131,15 @@
                                     <span>
                                           <c:set value="${fn:split(list.keyword_name, ',') }" var="names" />
                                            <c:forEach items="${names}" var="labelsName">
-                                             <a class="post_tag" href="http://www.zuidaima.com/share/kcss3-p1-s1.htm">
+                                             <a class="post_tag" href="../CodeController/qyerycode?keyword_name=${labelsName}">
                                                      ${labelsName}
                                              </a>
                                            </c:forEach>
                                     </span>
-                                    <span class="pull-right"><a class="post_topic" href="/manage/selectUserShare?ids=$" >${list.tName}</a></span>
+                                    <span class="pull-right">
+                                        <a class="post_topic" href="../CodeController/qyerycode?tname=${list.tName}" >
+                                        ${list.tName}</a>
+                                        </span>
                                 </div>
                             </div>
                         </c:forEach>
@@ -223,7 +223,7 @@
                     arr += "</div>"
                     for (var y = 0; y < array.length; y++) {
                         arr += "<li class='col-12 nav-item'>";
-                        arr += " <a href='/type/selectUserShare?ids="+array[y].id+"'>" + array[y].tname + "</a> ";
+                        arr += " <a href='../CodeController/qyerycode?ids="+array[y].id+"'>" + array[y].tname + "</a> ";
                         arr += "</li>"
                     }
                     arr += "</ul>"

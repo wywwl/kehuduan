@@ -110,7 +110,7 @@
                     <span class="error"></span>
                 </div>
                 <div class="margin_top10">
-                    <form id="blog" class="project" method="post" action="../CodeController/addblog" enctype="multipart/form-data">
+                    <form id="blog" class="project" action="../CodeController/addblog" enctype="multipart/form-data" method="post">
                         <div class="input_item_title">
                             <span class="must_input">*</span>
                             预扣牛币数1(胡乱提交不返回，审核通过返回，防止垃圾博客)
@@ -124,26 +124,27 @@
                         <textarea name="blog_content" id="editor" rows="20" class="col-12">
 
                         </textarea>
-                      <script>
-                            CKEDITOR.replace('editor',{
-                                customConfig : 'config.js',
-                                extraPlugins: 'colorbutton,font,smiley,flash,syntaxhighlight',
-                                toolbar: [
-                                    [ 'Link', 'Unlink'],
-                                    ['Bold', 'Italic','Strike','RemoveFormat'],
-                                    ['NumberedList', 'BulletedList','Blockquote'],
-                                    ['FontSize', 'TextColor', 'BGColor'],
-                                    ['Image','Flash', 'Smiley'],
-                                    ['Table'],
-                                    ['Syntaxhighlight'],
-                                    ['Source'],
-                                    ['Maximize']
-                                ]
-                            });
-                        </script>
-                        <br clear="all"/>
+
+                        <br clear="all"/><script>
+                        CKEDITOR.replace('editor',{
+                            customConfig : 'config.js',
+                            extraPlugins: 'colorbutton,font,smiley,flash,syntaxhighlight',
+                            toolbar: [
+                                [ 'Link', 'Unlink'],
+                                ['Bold', 'Italic','Strike','RemoveFormat'],
+                                ['NumberedList', 'BulletedList','Blockquote'],
+                                ['FontSize', 'TextColor', 'BGColor'],
+                                ['Image','Flash', 'Smiley'],
+                                ['Table'],
+                                ['Syntaxhighlight'],
+                                ['Source'],
+                                ['Maximize']
+                            ]
+                        });
+                    </script>
                         <div class="post_project">
-                           <input type="submit" value="发表">
+                         <input type="submit" value="发表">
+                         <%-- <a href="javascript:addblog()" id="create_submit">发表</a>--%>
                         </div>
                         <br clear="all"/>
                     </form>
@@ -178,20 +179,18 @@
 
 
 
-<script !src="">
+<script >
 
-    function  addblog() {
-        var s=$('#blog').serialize();
+   function  addblog() {
+
+       /!* var s=;*!/
+       var s=$('#editor').val();
+        alert(s)
         $.ajax({
-            url:"../CodeController/addblog",
+            url:"/CodeController/addblog",
             type:"post",
-            data:s,
-            processData:false,
-            contentType:false,
-            success:function(data){
-
-                window.location.href="../CodeController/qyeryblog";
-               /* location.href="../CodeController/qyeryblog"*/
+            data:$('#blog').serialize(),
+            success:function(){
 
             }
         });

@@ -4,13 +4,14 @@ import com.jk.model.Blog;
 import com.jk.model.Code;
 import com.jk.model.Comment;
 import com.jk.model.UserBean;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.HashMap;
 import java.util.List;
 
 public interface CodeService {
 
-    HashMap<String, Object> queryCode(Integer pageSize, Integer start);
+
 
     void deleteCode(Code code);
 
@@ -18,7 +19,7 @@ public interface CodeService {
 
     void deleteBlog(Blog blog);
 
-    List<Code> qyerycode(Code code);
+    List<Code> qyerycode(Code code,String keyword_name,String tname,String ids);
 
     void updateall(Code code);
 
@@ -52,5 +53,11 @@ public interface CodeService {
 
     List<Comment> querycommnet(Comment comment);
 
-    void addblog(Blog blog);
+    String addblog(Blog blog);
+
+    void addcode(Code  code);
+
+    String updateHead(MultipartFile file, int i);
+
+    HashMap<String, Object> queryCode(Integer pageSize, Integer start);
 }

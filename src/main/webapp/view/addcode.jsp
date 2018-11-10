@@ -31,6 +31,9 @@
     <script src="http://static.zuidaima.cn/static/v201806/js/jquery.lazyload.js"></script>
     <script src="http://static.zuidaima.cn/static/v201806/js/jquery.gifplayer.js"></script>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../layui/css/modules/layer/default/layer.css">
+    <script type="text/javascript"src="../layui/layui.all.js"></script>
 </head>
 <body>
 <div class="header">
@@ -132,111 +135,47 @@
                         <input id="code_title" name="code_title" class="col-12" type="text" value="" />
                         <div class="input_item_title margin_top10">
                             <span class="must_input">*</span>描述</div>
-                        <textarea name="code_content" id="editor" rows="20" class="col-12">
-
-						</textarea>
+                        <textarea id="add_Content" name="content"></textarea><br>
                         <script>
-                            CKEDITOR.replace('editor',{
-                                customConfig : 'config.js',
-                                extraPlugins: 'colorbutton,font,smiley,flash,syntaxhighlight',
-                                toolbar: [
-                                    [ 'Link', 'Unlink'],
-                                    ['Bold', 'Italic','Strike','RemoveFormat'],
-                                    ['NumberedList', 'BulletedList','Blockquote'],
-                                    ['FontSize', 'TextColor', 'BGColor'],
-                                    ['Image','Flash', 'Smiley'],
-                                    ['Table'],
-                                    ['Syntaxhighlight'],
-                                    ['Source'],
-                                    ['Maximize']
-                                ]
+                            //初始化layui相关组件
+                            layui.use(['form', 'upload', 'layedit', 'laydate'], function(){
+                                var form = layui.form;
+                                var upload = layui.upload;
+                                var edit = layui.layedit;
+                                var laydate = layui.laydate;
+
+                                //初始化编辑器
+                                usereditor = edit.build("add_Content");
+
+                                data_sync = function() {
+                                    edit.sync(usereditor);
+                                }
+
                             });
+
                         </script>
                         <div class="input_item_title margin_top10">
                             <span class="must_input">*</span>
                             话题(请选择下面的话题，只能选一个)
                         </div>
                         <input id="topics" name="topics" value="" class="topics col-12" readonly="readonly"/>
-                        <div>
-                            <div class="margin_top5 margin_bottom10">编程语言基础</div>
-                            <div class="datas row">
-                                <a class="topic col-3">设计模式</a>
-                                <a class="topic col-3">加密混淆</a>
-                                <a class="topic col-3">网络编程</a>
-                                <a class="topic col-3">语法算法</a>
-                            </div>
-                            <div class="datas row">
-                            </div>
-                            <div class="margin_top5 margin_bottom10">Web开发</div>
-                            <div class="datas row">
-                                <a class="topic col-3">web网站开发</a>
-                                <a class="topic col-3">前端技术</a>
-                            </div>
-                            <div class="margin_top5 margin_bottom10">数据库开发</div>
-                            <div class="datas row">
-                                <a class="topic col-3">Nosql数据库</a>
-                                <a class="topic col-3">关系型数据库</a>
-                            </div>
-                            <div class="margin_top5 margin_bottom10">客户端开发</div>
-                            <div class="datas row">
-                                <a class="topic col-3">手机客户端开发</a>
-                                <a class="topic col-3">桌面客户端开发</a>
-                            </div>
-                            <div class="margin_top5 margin_bottom10">脚本工具</div>
-                            <div class="datas row">
-                                <a class="topic col-3">日期时间操作</a>
-                                <a class="topic col-3">字节字符串操作</a>
-                                <a class="topic col-3">文本解析和文件处理</a>
-                            </div>
-                            <div class="margin_top5 margin_bottom10">游戏开发</div>
-                            <div class="datas row">
-                                <a class="topic col-3">服务端游戏开发</a>
-                                <a class="topic col-3">客户端游戏</a>
-                                <a class="topic col-3">网络游戏</a>
-                                <a class="topic col-3">网页游戏</a>
-                            </div>
-                            <div class="datas row">
-                            </div>
-                            <div class="margin_top5 margin_bottom10">服务器软硬件</div>
-                            <div class="datas row">
-                                <a class="topic col-3">操作系统</a>
-                                <a class="topic col-3">Web服务器</a>
-                            </div>
-                            <div class="margin_top5 margin_bottom10">开源组件类库</div>
-                            <div class="datas row">
-                                <a class="topic col-3">CRM系统</a>
-                                <a class="topic col-3">持久层框架</a>
-                                <a class="topic col-3">邮件开发</a>
-                                <a class="topic col-3">图片处理</a>
-                            </div>
-                            <div class="datas row">
-                                <a class="topic col-3">音视频处理</a>
-                                <a class="topic col-3">cms系统</a>
-                                <a class="topic col-3">博客系统</a>
-                                <a class="topic col-3">项目管理</a>
-                            </div>
-                            <div class="datas row">
-                                <a class="topic col-3">单元测试</a>
-                                <a class="topic col-3">模板引擎</a>
-                                <a class="topic col-3">报表制作</a>
-                                <a class="topic col-3">工作流引擎</a>
-                            </div>
-                            <div class="datas row">
-                                <a class="topic col-3">日志工具</a>
-                                <a class="topic col-3">搜索爬虫</a>
-                                <a class="topic col-3">缓存系统</a>
-                                <a class="topic col-3">消息系统</a>
-                            </div>
-                            <div class="datas row">
-                                <a class="topic col-3">任务调度</a>
-                            </div>
+                        <div class="col-3 right_bar" id="jzuid">
+
+
                         </div>
                         <div class="upload margin_top10 input_item_title">
                             代码(只支持java,zip文件,非必须)
                         </div>
                         <div class="upload margin_top10 input_item_title select_file col">
-                            <input id="file" name="file" type="file" type="text" value="" size="20" />
-                            <a href="javascript:void(0)">选择源码</a>
+                            <%--图片回显的img标签--%>
+                            <%--<div id="showImgDiv" style="width: 150px;height: 200px;border-style:solid;border-width:1px; border-color:#2d5bb5;">
+                                <img src="" id="showImg" style="width: 150px;height: 200px;">
+                            </div>--%>
+                            <%--显示进度条的div--%>
+                        </div>
+                        <br clear="all">
+                        <div class="margin_top10">
+                            <span class="select_file_name"></span>
                         </div>
                         <br clear="all"/>
                         <div class="margin_top10">
@@ -244,7 +183,7 @@
                         </div>
                         <br clear="all"/>
                         <div class="post_project">
-                            <a href="javascript:void(0)" id="create_submit">发表</a>
+                            <a href="javascript:addcode()" id="create_submit">发表</a>
                         </div>
                         <br clear="all"/>
                     </form>
@@ -310,7 +249,25 @@
 <div id="ajax-modal" class="modal fade" style="display: none;"></div>
 
 <script>
-    var uri=window.location.pathname+window.location.search;
+    function  addblog() {
+        alert(111)
+      /*  var s=$('#blog').serialize();
+        $.ajax({
+            url:"../CodeController/addblog",
+            type:"post",
+            data:s,
+            processData:false,
+            contentType:false,
+            success:function(data){
+                window.location.href="<%=request.getContextPath()%>/CodeController/qyeryblog";
+
+                /!* location.href="../CodeController/qyeryblog"*!/
+
+            }
+        });*/
+    }
+
+ var uri=window.location.pathname+window.location.search;
     var redirect_url="";
     if(uri.indexOf("redirect_url")==-1){
         redirect_url="?redirect_url="+encodeURIComponent(uri);
@@ -326,14 +283,44 @@
     function logout(){
         window.location='/user/logout.htm'+redirect_url;
     }
-
+/*
     $(function() {
         $("img.lazy").lazyload();
         SyntaxHighlighter.all();
         Zuidaima.initizal();
         $('.gifs').gifplayer();
         setInterval("remind(4141933609060352,311443)",30000);
-    });
+    });*/
+
+
+    /*一级二级管理*/
+    $(function() {
+        selectShare();
+    })
+    function selectShare(){
+        $.ajax({
+            url: "../CodeController/selectManage",
+            dataType: "json",
+            success: function (result) {
+                var arr = ""
+                for (var i = 0; i < result.length; i++) {
+                    var array = result[i].managesList;
+                    arr += "<ul class=\"data_list nav-list\" ><li><div class='data_list_title3 list-group'>";
+                    arr += "<a href=''>" + result[i].tname + "</a>"
+                    arr += "<ul class='navbar-nav' style='padding: 0px;'>";
+                    arr += "</div>"
+                    for (var y = 0; y < array.length; y++) {
+                        arr += "<li class='col-12 nav-item'>";
+                        arr += " <a href='../CodeController/qyerycode?ids="+array[y].id+"'>" + array[y].tname + "</a> ";
+                        arr += "</li>"
+                    }
+                    arr += "</ul>"
+                    arr += "</li> </ul>"
+                }
+                $("#jzuid").html(arr)
+            }
+        });
+    }
 </script>
 <div class="footer margin_top10">
     <div class="container">
@@ -348,7 +335,7 @@
         </div>
     </div>
 </div>
-<%--<script>
+<script>
   var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
@@ -356,7 +343,7 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
     })();
-</script>--%>
+</script>
 </body>
 </html>
 

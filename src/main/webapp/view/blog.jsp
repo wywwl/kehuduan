@@ -48,7 +48,7 @@
                     <a id="nav_question" class="nav-link" href="/question.htm">问答</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav_blog" class="nav-link" href="../view/blog.jsp">博客</a>
+                    <a id="nav_blog" class="nav-link" href="../CodeController/qyeryblog">博客</a>
                 </li>
                 <li class="nav-item">
                     <a id="nav_activity" class="nav-link" href="/activity.htm">活动</a>
@@ -132,7 +132,7 @@
                         <c:forEach items="${list}"  var="list">
                             <div class="col-1">
                                 <a class="name" href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg">
-                                    <img content_id="4132167457753088_1" alt="css3实现3d图片旋转（多图）" class="profile rounded-circle" src="${list.userFile}"/></a>
+                                    <img content_id="4132167457753088_1" alt="" class="profile rounded-circle" src="${list.userFile}"/></a>
                             </div>
                             <div class="col-11">
                                 <div class="data_title">
@@ -152,10 +152,7 @@
                                 </div>
                                 <div class="content margin_top5" id="project_content_4099965877734400">
                                         ${list.blog_content}
-                                    <div class="clear">
-                                        <a href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" target="_top"><img alt="css3实现3d图片旋转（多图）" data-rawwidth="809" data-rawheight="799" src="" class="lazy img-rounded" data-original="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" style="height: 118px;"></a>&nbsp;&nbsp;
-                                        <a href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" target="_top"><img alt="css3实现3d图片旋转（多图）" data-rawwidth="825" data-rawheight="489" src="" class="lazy img-rounded" data-original="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" style="height: 71px;"></a>&nbsp;&nbsp;
-                                    </div>
+
                                 </div>
                                 <div class="clear margin_top5 data_ops">
                                     <span class="code">浏览${list.blog_Browse_number}</span>
@@ -168,6 +165,23 @@
                     </div>
 
                 </div>
+                <ul class="pagination justify-content-center margin_top10">
+                    <li class="page-item active">
+                        <a class="page-link"  href="javascript:void(0)">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link"  href="/blog/p2.htm">2</a>
+                    </li>
+
+                    <span>...</span>
+                    <li class="page-item">
+                        <a href="/blog/p37.htm" class="page-link">37</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="/blog/p2.htm">下一页</a>
+                    </li>
+                </ul>
+
 
             </div>
         </div>

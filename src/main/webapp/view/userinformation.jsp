@@ -40,7 +40,7 @@
                     <a id="nav_index" class="nav-link" href="/">首页</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav_share" class="nav-link" href="/share.htm">代码</a>
+                    <a id="nav_share" class="nav-link" href="/../CodeController/qyerycode">代码</a>
                 </li>
                 <li class="nav-item">
                     <a id="nav_question" class="nav-link" href="/question.htm">问答</a>
@@ -104,7 +104,7 @@
                         <c:forEach items="${list}"  var="list">
                             <div class="col-1">
                                 <a class="name" href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg">
-                                    <img content_id="4132167457753088_1" alt="css3实现3d图片旋转（多图）" class="profile rounded-circle" src="${list.userFile}"/></a>
+                                    <img content_id="4132167457753088_1" alt="" class="profile rounded-circle" src="${list.userFile}"/></a>
                             </div>
                             <div class="col-11">
                                 <div class="data_title">
@@ -120,10 +120,7 @@
                                 </div>
                                 <div class="content margin_top5" id="project_content_4099965877734400">
                                         ${list.code_content}
-                                    <div class="clear">
-                                        <a href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" target="_top"><img alt="css3实现3d图片旋转（多图）" data-rawwidth="809" data-rawheight="799" src="" class="lazy img-rounded" data-original="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" style="height: 118px;"></a>&nbsp;&nbsp;
-                                        <a href="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" target="_top"><img alt="css3实现3d图片旋转（多图）" data-rawwidth="825" data-rawheight="489" src="" class="lazy img-rounded" data-original="https://jinke1804a.oss-cn-beijing.aliyuncs.com/1804/1541159937262.jpg" style="height: 71px;"></a>&nbsp;&nbsp;
-                                    </div>
+
                                 </div>
                                 <div class="clear margin_top5 data_ops">
                                     <span class="code">浏览${list.code_Browse}</span>
@@ -158,7 +155,7 @@
                 </div>
                 <div class="row margin_top10">
                     <div class="col-6">
-                        <img width="100%" class="rounded-circle" alt="大葱葱的gravatar头像" src="${li.file}">
+                        <img width="100%" class="rounded-circle" alt="" src="${li.file}">
                     </div>
                     <div class="col-6">
                         <p>ID:${li.id}</p>

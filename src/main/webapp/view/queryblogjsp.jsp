@@ -40,7 +40,7 @@
                     <a id="nav_index" class="nav-link" href="/">首页</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav_share" class="nav-link" href="/share.htm">代码</a>
+                    <a id="nav_share" class="nav-link" href="../CodeController/qyerycode">代码</a>
                 </li>
                 <li class="nav-item">
                     <a id="nav_question" class="nav-link" href="/question.htm">问答</a>
@@ -101,7 +101,7 @@
                     <div class="data row">
                         <div class="col-1">
                             <a class="name" href="http://www.zuidaima.com/user/3783358206609408.htm">
-                                <img content_id="3783358206609408_" alt="lyy123asd的gravatar头像" class="profile rounded-circle" src="${list.userFile}" /></a>
+                                <img content_id="3783358206609408_" alt="" class="profile rounded-circle" src="${list.userFile}" /></a>
                         </div>
                         <div class="col-11">
                             <div class="data_title">

@@ -2,14 +2,16 @@ package com.jk.controller;
 
 import com.jk.model.*;
 import com.jk.service.CodeService;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.util.HashMap;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Controller
 @RequestMapping("CodeController")
@@ -43,8 +45,8 @@ public class CodeController {
       * */
 
     @RequestMapping("qyerycode")
-    public String qyerycode(Model model, Code code){
-        List<Code> list= codeService.qyerycode(code);
+    public String qyerycode(Model model, Code code,String keyword_name,String tname,String ids){
+        List<Code> list= codeService.qyerycode(code,keyword_name,tname,ids);
         model.addAttribute("list",list);
         return  "/view/code.jsp";
     }
@@ -188,9 +190,21 @@ public class CodeController {
     }
 
     @RequestMapping("addblog")
-    public void addblog(Blog blog){
+    public String addblog(Blog blog){
 
         codeService.addblog(blog);
+
+        return "redirect:/CodeController/qyeryblog";
+
+    }
+
+    @RequestMapping("addcode")
+    public String addcode(Code  code){
+
+        codeService.addcode(code);
+
+        return "redirect:/CodeController/qyerycode";
+
     }
 
 
