@@ -44,7 +44,7 @@
     <div class="z"> 
      <a href="${path}/" class="nvhm" title="首页">首页</a> 
      <em>›</em> 
-     <a href="${path}/user/index.do">设置</a> 
+     <a href="${path}/index.do">设置</a>
      <em>›</em>个人资料 
     </div> 
    </div> 
@@ -148,6 +148,7 @@
        <li class="a"><a href="${path}/index">个人资料</a></li>
        <li ><a href="${path}/topwd">密码安全</a></li>
        <li><a href="${path}/user/jifen/index">积分</a></li>
+       <li><a href="${path}/toSendemail">邮箱验证修改密码</a></li>
       </ul> 
      </div>
     </div> 

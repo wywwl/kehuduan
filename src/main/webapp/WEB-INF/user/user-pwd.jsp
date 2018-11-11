@@ -62,6 +62,11 @@ function updatepwd(){
 	 });
 }
 
+
+function  toSendemail(){
+
+    window.location.href='../toSendemail';
+}
 </script>
 </head>
  <body id="nv_forum" class="pg_index">
@@ -103,7 +108,8 @@ function updatepwd(){
         <tbody>
          <tr> 
           <th>&nbsp;</th> 
-          <td><button type="button" name="pwdsubmit" value="true" class="pn pnc" onclick="updatepwd();"><strong>保存</strong></button></td> 
+          <td><button type="button" name="pwdsubmit" value="true" class="pn pnc" onclick="updatepwd();"><strong>保存</strong></button></td>
+          <td><button type="button"   value="true" class="pn pnc" onclick="toSendemail();"><strong>忘了密码?找回密码</strong></button></td>
          </tr> 
         </tbody>
        </table> 
@@ -114,9 +120,10 @@ function updatepwd(){
      <div class="tbn"> 
       <h2 class="mt bbda">设置</h2> 
       <ul> 
-       <li><a href="${path}/user/index.do">个人资料</a></li> 
-       <li class="a"><a href="${path}/user/topwd.do">密码安全</a></li> 
-       <li><a href="${path}/user/jifen/index.do">积分</a></li> 
+       <li><a href="${path}/index">个人资料</a></li>
+       <li class="a"><a href="${path}/topwd">密码安全</a></li>
+       <li><a href="${path}/showUserJiFen">积分</a></li>
+       <li><a href="${path}/toSendemail">邮箱验证修改密码</a></li>
       </ul> 
      </div>
     </div> 

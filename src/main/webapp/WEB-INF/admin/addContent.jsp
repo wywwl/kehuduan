@@ -13,7 +13,7 @@
 <body>
 <form id="addForm" method="post">
 
-   博客id:  类型：<input id="list_typeid" name="bid" />
+   博客id:  类型：<input id="list_typeid" name="bid" value=""/>
 
     评论内容:<textarea id="add_Content" name="content"></textarea><br>
 
@@ -22,11 +22,7 @@
 
 <script type="text/javascript">
 
-    $('#list_typeid').combobox({
-        url:'../comment/getBlogData',
-        valueField:'blog_id',
-        textField:'blog_title'
-    });
+
 
 
     //初始化layui相关组件
@@ -42,6 +38,8 @@
         data_sync = function() {
             edit.sync(usereditor);
         }
+
+
 
 
     });

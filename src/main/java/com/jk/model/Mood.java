@@ -19,11 +19,7 @@ public class Mood implements Serializable {
     //板块id
     private Integer bankuaiId;
 
-    //帖子的html内容
-    private String contenthtml;
 
-    //帖子的文本内容（用于做摘要使用）
-    private String contenttxt;
     //主题的id
     private String zhutiid;
     //最后编辑内容记录
@@ -59,6 +55,77 @@ public class Mood implements Serializable {
     //排序
     private String orderby;
 
+
+    private int praiseCount;//点赞数
+
+    private int  stepCount;  //踩次数
+
+    private String file ;
+
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+
+    //帖子的文本内容（用于做摘要使用）
+    private String contenthtml;
+
+    private String contenttxt;
+
+    public String getContenthtml() {
+        return contenthtml;
+    }
+
+    public void setContenthtml(String contenthtml) {
+        this.contenthtml = contenthtml == null ? null : contenthtml.trim();
+    }
+
+    public String getContenttxt() {
+        return contenttxt;
+    }
+
+    public void setContenttxt(String contenttxt) {
+        this.contenttxt = contenttxt == null ? null : contenttxt.trim();
+    }
+    private String names;
+    private String address;
+
+
+    public int getPraiseCount() {
+        return praiseCount;
+    }
+
+    public void setPraiseCount(int praiseCount) {
+        this.praiseCount = praiseCount;
+    }
+
+    public int getStepCount() {
+        return stepCount;
+    }
+
+    public void setStepCount(int stepCount) {
+        this.stepCount = stepCount;
+    }
+
+    public String getNames() {
+        return names;
+    }
+
+    public void setNames(String names) {
+        this.names = names;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public Integer getId() {
         return id;
@@ -100,21 +167,8 @@ public class Mood implements Serializable {
         this.bankuaiId = bankuaiId;
     }
 
-    public String getContenthtml() {
-        return contenthtml;
-    }
 
-    public void setContenthtml(String contenthtml) {
-        this.contenthtml = contenthtml;
-    }
 
-    public String getContenttxt() {
-        return contenttxt;
-    }
-
-    public void setContenttxt(String contenttxt) {
-        this.contenttxt = contenttxt;
-    }
 
     public String getZhutiid() {
         return zhutiid;

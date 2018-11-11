@@ -10,6 +10,7 @@ import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -104,17 +105,50 @@ public   String toaddContent( ){
         String id="1";
 
         try {
-           request.getSession().setAttribute(String.valueOf(id), "userInfo");
+        /*   request.getSession().setAttribute(String.valueOf(id), "userInfo");*/
+        UserBean    user=(UserBean)request.getSession().getAttribute(PublicStatic.USER);
             // 如果用户未登录则不能评论
-            int userId = UserBeanUtil.getUserId(request);
-            if (userId == 0) {
+            Integer uid = user.getId();
+            if (uid == 0) {
                 json .put("flg","1");//用户id为空
                 return json;
             }
             // 登陆用户id
-            comment.setUid(userId);
+            comment.setUid(uid);
             // 添加评论
             commentService.saveComment(comment);
+            json.put("flg","2");//发送成功
+
+        } catch (Exception e) {
+            json.put("flg","3");//发送失败
+            logger.error("saveComment()--error", e);
+        }
+
+        return json;
+    }
+
+
+
+
+    // 添加评论
+    @RequestMapping("saveMood")
+    @ResponseBody
+    public Map<String,Object> saveMood(HttpServletRequest request, Mood mood){
+        Map<String, Object> json = new HashMap<>();
+
+        try {
+            /*   request.getSession().setAttribute(String.valueOf(id), "userInfo");*/
+            UserBean    user=(UserBean)request.getSession().getAttribute(PublicStatic.USER);
+            // 如果用户未登录则不能评论
+            Integer uid = user.getId();
+            if (uid == 0  && uid!=null) {
+                json .put("flg","1");//用户id为空
+                return json;
+            }
+            // 登陆用户id
+            mood.setCreateuserid(uid);
+            // 添加评论
+            commentService.saveMood(mood);
             json.put("flg","2");//发送成功
 
         } catch (Exception e) {
@@ -250,11 +284,11 @@ public   String toaddContent( ){
             }
 
 
-                user=(UserBean)request.getSession().getAttribute(PublicStatic.USER);
-                Jifen jifen=new Jifen();
+        UserBean attribute = (UserBean) request.getSession().getAttribute(PublicStatic.USER);
+        Jifen jifen=new Jifen();
                 jifen.setFenshu(PublicStatic.JIFEN_LOGIN);
         /*user.getId()*/
-                jifen.setUserid(4);
+                jifen.setUserid(attribute.getId());
                 jifen.setType("104");
                 jifen.setContent("每天第一次登录您获得"+PublicStatic.JIFEN_LOGIN+"积分");
                 int findnowcount = commentService.findnowcount(jifen);
@@ -292,7 +326,7 @@ public   String toaddContent( ){
         }else{
         UserBean user=new UserBean();
         user.setId(users.getId());
-        user.setUpwds(pwd);
+        user.setUpwds(Tool.MD5(pwd));
         Map<String, Object> map = commentService.login(user);
 
         if("1".equals(map.get("flag").equals("66"))){
@@ -316,8 +350,6 @@ public   String toaddContent( ){
         request.getSession().setAttribute(PublicStatic.USER, user);
         return "redirect:/index";
     }
-
-
 
 
 

@@ -13,7 +13,7 @@ function showhidediv(){
   <div id="toptb" class="cl"> 
    <div class="wp"> 
     <div class="z"> 
-     <a href="../" title="${applicationScope.indexuser.name}"><img src="../file/${applicationScope.indexuser.file}" alt="${applicationScope.indexuser.name}"  /></a>
+     <a href="../" title="${indexuser.name}"><img src="../upload/${indexuser.file}" alt="${indexuser.name}"  /></a>
     </div> 
     <div class="z qing_toptb"> 
      <ul> 
@@ -31,7 +31,7 @@ function showhidediv(){
        <c:if  test="${sessionScope.indexuser.groupid==1}">
        	<a href="${path}/admin/index.do"><span class="z">后台中心</span></a> 
        </c:if>
-       <a href="${path}/user/index.do">设置</a> 
+       <a href="${path}/index.do">设置</a>
        <a href="${path}/logout">退出</a>
       </div> 
      </c:if>	

@@ -11,15 +11,17 @@
     <title>Title</title>
 </head>
 <body>
-<link rel="stylesheet" href="../boot/bootstrap3/css/bootstrap.min.css">
 
-<link rel="stylesallheet" href="../boot/layui/css/layui.css">
-<link rel="stylesheet" href="../layui/css/modules/layer/default/layer.css">
+
+<link rel="stylesallheet" href="../boot/layui/css/layui.css"  media="all">
+<link rel="stylesheet" href="../boot/layui/css/modules/layer/default/layer.css"  >
 <link rel="stylesheet" href="../boot/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+<link rel="stylesheet" href="../boot/bootstrap3/css/bootstrap.min.css">
 <link rel="stylesheet" href="../boot/bootstrap3/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../boot/bootstrap3/css/toastr.css">
 <link rel="stylesheet" href="../boot/bootstrap3/css/bootstrap-table.css">
 <link rel="stylesheet" href="../boot/bootstrap3/css/easyui.css">
-<link rel="stylesheet" href="../boot/bootstrap3/css/toastr.css">
+
 <script src="../boot/bootstrap3/js/jquery-3.2.0.min.js"></script>
 <script src="../boot/bootstrap3/js/layui.all.js"></script>
 <script src="../boot/bootstrap-table/bootstrap-table.js"></script>

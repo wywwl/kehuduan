@@ -19,15 +19,18 @@ public class UserBean implements Serializable {
     private String login;
 
     private String upwds;
+    private String uemial;
     private String address;
    private String webage;
-    private String uemial;
+
    private Double years;
 
 
     private String qianming;
     private String file;
+  private int page;
 
+  private int rows;
     //创建时间
     private String createtime;
 
@@ -48,6 +51,22 @@ public class UserBean implements Serializable {
 
     public void setWebage(String webage) {
         this.webage = webage;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
     }
 
     //注册ip
@@ -76,6 +95,27 @@ public class UserBean implements Serializable {
     //验证码
     private String yanzhengma;
 
+    private int counts ;//统计个数
+
+
+    private int value; //每个季度
+
+    public int getCounts() {
+        return counts;
+    }
+
+    public void setCounts(int counts) {
+        this.counts = counts;
+    }
+
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
 
     public String getPathlocation() {
         return pathlocation;
