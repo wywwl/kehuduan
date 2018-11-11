@@ -128,7 +128,6 @@
     function search(){
         $("#book_table").bootstrapTable('refresh',
             {query: {
-
                     "bookName":$("#bookName").val(),
                     "minTimel":$("#minTime").val(),
                     "maxTimel":$("#maxTime").val(),

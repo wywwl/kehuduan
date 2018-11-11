@@ -16,7 +16,6 @@
             dataType:'json',
             data:{"nbcount":'${jiaqian}',"id":'${session.indexuser.login}'},
             success:function(){
-
             }
         })
     })

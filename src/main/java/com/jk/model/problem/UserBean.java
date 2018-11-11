@@ -1,33 +1,25 @@
-package com.jk.model.userModel;
-
-import java.io.Serializable;
+package com.jk.model.problem;
 
 /**
  * 王玉荣
  */
-public class UserBean implements Serializable {
+public class UserBean {
 
     private Integer id;
+
     private String name;
+
     private  Integer sex;
+
     private Integer age;
+
     private String login;
+
     private String upwds;
+
     private String address;
+
     private String uemial;
-    private  String  file;
-    private  String   grade;
-    private   Integer  nbcount;
-
-    private  Integer jifen;
-
-    public Integer getJifen() {
-        return jifen;
-    }
-
-    public void setJifen(Integer jifen) {
-        this.jifen = jifen;
-    }
 
     public Integer getId() {
         return id;
@@ -91,29 +83,5 @@ public class UserBean implements Serializable {
 
     public void setUemial(String uemial) {
         this.uemial = uemial;
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public void setFile(String file) {
-        this.file = file;
-    }
-
-    public String getGrade() {
-        return grade;
-    }
-
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
-
-    public Integer getNbcount() {
-        return nbcount;
-    }
-
-    public void setNbcount(Integer nbcount) {
-        this.nbcount = nbcount;
     }
 }

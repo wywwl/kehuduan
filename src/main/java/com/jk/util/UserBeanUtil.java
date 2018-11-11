@@ -1,6 +1,6 @@
 package com.jk.util;
 
-import com.jk.model.UserBean;
+import com.jk.model.problem.UserBean;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
