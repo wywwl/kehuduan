@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -40,6 +41,7 @@ public class ProblemController {
         List<Problem> list = problemService.queryProblem(id);
         for (Problem problem : list
         ) {
+            File file = new File("");
             problem.setNewDate(new Date());
         }
             model.addAttribute("problem", list);
@@ -70,5 +72,16 @@ public class ProblemController {
     }
     //分页查询:
 
+    //添加问题选项
+    @RequestMapping("addProblem")
+    @ResponseBody
+    public String addProblem(Problem problem){
+        try {
+            problemService.problemService();
+        }catch (Exception e){
+          e.printStackTrace();
+        }
+        return "1";
+    }
 }
 

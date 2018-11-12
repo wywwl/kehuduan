@@ -12,4 +12,6 @@ public interface ProblemService {
 
     //条件查询
     List<Problem> queryLicke(Problem problem);
+    //问题新增
+    void problemService();
 }
